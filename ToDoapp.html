@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do App</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color:slateblue;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-width: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.input-section {
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 5px 10px;
+  background-color:mediumvioletred;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.task-done {
+  text-decoration: line-through;
+}
+  </style>
+</head>
+<body>
+    <br><br><br><br>
+  <div class="container">
+    <h1>To-Do App</h1>
+    <div class="input-section">
+      <input type="text" id="taskInput" placeholder="Add a task">
+      <button onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskList = document.getElementById("taskList");
+  
+    if (taskInput.value === "") {
+      return;
+    }
+  
+    var task = document.createElement("li");
+    task.textContent = taskInput.value;
+    taskList.appendChild(task);
+  
+    taskInput.value = "";
+  
+    task.addEventListener("click", function () {
+      task.classList.toggle("task-done");
+    });
+  }
+  </script>
+</body>
+</html>
